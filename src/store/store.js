@@ -11,8 +11,30 @@ const initialData = {
   total: 0,
 };
 
-const reducer = (state=initialData, action) => {
-  return state;
+const reducer = (state = initialData, action) => {
+  if (action.type === "PURCHASE") {
+    return {
+      ...state,
+      cart: [...state.cart, action.payload],
+      total: state.total + parseInt(action.payload.price)
+    };
+  }
+  else if
+  
+    (action.type === "REMOVE") {
+      return {
+      ...state,
+      cart: state.cart.filter((item)=>item.pName!==action.payload.pName),
+      total: state.total - parseInt(action.payload.price)
+    }
+  }
+  else if (action.type === "CLEAR") {
+    return {
+      ...state,
+      cart: [],
+      total: 0
+    }
+  }
 };
 const store = createStore(reducer);
 

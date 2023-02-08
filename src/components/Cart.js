@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 
 const Cart = () => {
@@ -12,7 +12,6 @@ const Cart = () => {
           return <li key={index}>{product.pName} </li>;
         })}
       </ul>
-      {Total}
     </div>
   );
 };
